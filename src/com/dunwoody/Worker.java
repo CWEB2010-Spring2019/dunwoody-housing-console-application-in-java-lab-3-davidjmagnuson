@@ -1,12 +1,10 @@
 package com.dunwoody;
 
 public class Worker extends Resident {
+		
+	public float rent; 
 	
-	public float hrsWorked;
-	
-	public float rent = 1245 - (hrsWorked * 14);
-	
-	public Worker(String first, String last, int id, int room, int floor, float hrsWorked)
+	public Worker(String first, String last, int id, int room, int floor)
     {
 		super(first, last, id, room, floor);
 		
@@ -16,8 +14,14 @@ public class Worker extends Resident {
         this.room = room;
         this.floor = floor;
         
-        this.hrsWorked = hrsWorked;
+        //this.hrsWorked = hrsWorked;
     }
 	
-
+	public float calcRent(float hrsWorked) {
+		return rent = 1245 - (hrsWorked * 14);
+	}
+	
+	public void displayWorker() {
+		System.out.printf("%s %s - id: %-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
+	}
 }

@@ -1,6 +1,6 @@
 package com.dunwoody;
 
-abstract class Resident {
+public abstract class Resident {
 	
 	protected String first;
 	protected String last;
@@ -17,5 +17,7 @@ abstract class Resident {
         this.room = room;
         this.floor = floor;
     }
+    
+    
 
 }
