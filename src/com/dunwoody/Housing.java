@@ -18,11 +18,17 @@ public class Housing {
 		if(choice == 1) {
 		//creating the resident
 		newResident();
+		//another resident or display
+		System.out.println("Enter '1' to add another resident or '2' to see all residents");
+		int decide = user.nextInt();
+			if(decide == 1) {
+				newResident();
+			}else if(decide == 2) {
+				displayAll();
+			}else {}
 		}else if(choice == 2) {
 		//displaying the residents
-		workerList.forEach((worker) -> worker.displayWorker());
-		athleteList.forEach((athlete) -> athlete.displayAthlete());
-		scholarList.forEach((scholar) -> scholar.displayScholar());
+		displayAll();
 		}
 	}
 
@@ -58,6 +64,12 @@ public class Housing {
 			Scholar aScholar = new Scholar(fName, lName, idNum, roomNum, floorNum);
 			scholarList.add(aScholar);
 			
-		}else {}
+		}else {}	
+	}
+	
+	public static void displayAll() {
+		workerList.forEach((worker) -> worker.displayWorker());
+		athleteList.forEach((athlete) -> athlete.displayAthlete());
+		scholarList.forEach((scholar) -> scholar.displayScholar());
 	}
 }

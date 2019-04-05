@@ -8,7 +8,6 @@ public class Athlete extends Resident {
 		return rent;
 	}
 	
-	
 	public Athlete(String first, String last, int id, int room, int floor)
     {
 		super(first, last, id, room, floor);
@@ -23,5 +22,4 @@ public class Athlete extends Resident {
 	public void displayAthlete() {
 		System.out.printf("%s %s - id: %-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
 	}
-
 }

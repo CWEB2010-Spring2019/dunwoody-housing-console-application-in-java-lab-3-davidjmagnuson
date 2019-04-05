@@ -17,7 +17,4 @@ public abstract class Resident {
         this.room = room;
         this.floor = floor;
     }
-    
-    
-
 }
