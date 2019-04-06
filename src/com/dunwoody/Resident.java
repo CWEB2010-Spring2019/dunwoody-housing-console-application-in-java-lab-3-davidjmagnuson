@@ -1,7 +1,7 @@
 package com.dunwoody;
 
 public abstract class Resident {
-	
+		
 	protected String first;
 	protected String last;
 	protected int id;

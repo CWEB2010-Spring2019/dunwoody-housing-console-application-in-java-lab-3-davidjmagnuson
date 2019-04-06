@@ -1,5 +1,6 @@
 package com.dunwoody;
 
+
 public class Athlete extends Resident {
 	
 	private float rent = 1200;
@@ -20,6 +21,6 @@ public class Athlete extends Resident {
     }
 	
 	public void displayAthlete() {
-		System.out.printf("%s %s - id: %-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
+		System.out.printf("%s %s - id:%-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
 	}
 }

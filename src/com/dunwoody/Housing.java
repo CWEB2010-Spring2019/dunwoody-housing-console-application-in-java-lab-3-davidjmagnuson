@@ -42,28 +42,26 @@ public class Housing {
         String fName = user.next();
 		System.out.println("Enter Residents last name");
 		String lName = user.next();
-		System.out.println("Enter Residents id number");
-		int idNum = user.nextInt();
 		System.out.println("Enter Residents room number");
 		int roomNum = user.nextInt();
 		System.out.println("Enter Residents floor number");
 		int floorNum = user.nextInt();
+		
 		//creating residents based on resident type
+		Random random = new Random();
+		int id = random.nextInt(999999);
 		if(resType == 1) {
 			System.out.println("Enter Residents number of hours worked");
 			float hrsWork = user.nextFloat();
-			Worker aWorker = new Worker(fName, lName, idNum, roomNum, floorNum);
+			Worker aWorker = new Worker(fName, lName, id, roomNum, floorNum);
 			aWorker.calcRent(hrsWork);
-			workerList.add(aWorker);
-			
+			workerList.add(aWorker);	
 		} else if(resType == 2) {
-			Athlete aAthlete = new Athlete(fName, lName, idNum, roomNum, floorNum);
+			Athlete aAthlete = new Athlete(fName, lName, id, roomNum, floorNum);
 			athleteList.add(aAthlete);
-			
 		}else if(resType == 3) {
-			Scholar aScholar = new Scholar(fName, lName, idNum, roomNum, floorNum);
+			Scholar aScholar = new Scholar(fName, lName, id, roomNum, floorNum);
 			scholarList.add(aScholar);
-			
 		}else {}	
 	}
 	
