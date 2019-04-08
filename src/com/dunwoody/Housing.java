@@ -8,28 +8,28 @@ public class Housing {
 		public static ArrayList<Worker> workerList = new ArrayList<Worker>();
 		public static ArrayList<Scholar> scholarList = new ArrayList<Scholar>();
 		public static ArrayList<Athlete> athleteList = new ArrayList<Athlete>();
+		static int choice;
 		
 	public static void main(String[] args) {
 		//greeting message
 		System.out.println("Welcome to the Dunwoody Housing App !\n");
-		System.out.println("Enter '1' to add a new Resident or '2' to see all residents");
-		int choice = user.nextInt();
+		newOrSee();
 		
+		do {
+		choice = user.nextInt();
 		if(choice == 1) {
-		//creating the resident
-		newResident();
-		//another resident or display
-		System.out.println("Enter '1' to add another resident or '2' to see all residents");
-		int decide = user.nextInt();
-			if(decide == 1) {
-				newResident();
-			}else if(decide == 2) {
-				displayAll();
-			}else {}
+			//another resident or display
+			newResident();
 		}else if(choice == 2) {
-		//displaying the residents
-		displayAll();
+			//displaying the residents
+			displayAll();
 		}
+		}while (choice != 3);
+		System.out.println("\nThanks for using the Dunwoody Housing App !");
+	}
+
+	public static void newOrSee() {
+		System.out.println("Enter '1' to add a new resident, '2' to see all residents, or '3' to exit");
 	}
 
 	public static void newResident() {
@@ -42,10 +42,6 @@ public class Housing {
         String fName = user.next();
 		System.out.println("Enter Residents last name");
 		String lName = user.next();
-		System.out.println("Enter Residents room number");
-		int roomNum = user.nextInt();
-		System.out.println("Enter Residents floor number");
-		int floorNum = user.nextInt();
 		
 		//creating residents based on resident type
 		Random random = new Random();
@@ -53,21 +49,43 @@ public class Housing {
 		if(resType == 1) {
 			System.out.println("Enter Residents number of hours worked");
 			float hrsWork = user.nextFloat();
+			System.out.println("Enter Residents floor number (1-3)");
+			int floorNum = user.nextInt();
+			System.out.println("Enter Residents room number");
+			int roomNum = user.nextInt();
 			Worker aWorker = new Worker(fName, lName, id, roomNum, floorNum);
 			aWorker.calcRent(hrsWork);
-			workerList.add(aWorker);	
+			workerList.add(aWorker);
+			System.out.println("\nYou just added " + aWorker.first + "!");
+			aWorker.displayWorker();
 		} else if(resType == 2) {
+			System.out.println("Enter Residents floor number (4-6)");
+			int floorNum = user.nextInt();
+			System.out.println("Enter Residents room number");
+			int roomNum = user.nextInt();
 			Athlete aAthlete = new Athlete(fName, lName, id, roomNum, floorNum);
 			athleteList.add(aAthlete);
+			System.out.println("\nYou just added " + aAthlete.first + "!");
+			aAthlete.displayAthlete();
 		}else if(resType == 3) {
+			System.out.println("Enter Residents floor number (7 or 8)");
+			int floorNum = user.nextInt();
+			System.out.println("Enter Residents room number");
+			int roomNum = user.nextInt();
 			Scholar aScholar = new Scholar(fName, lName, id, roomNum, floorNum);
 			scholarList.add(aScholar);
-		}else {}	
+			System.out.println("\nYou just added " + aScholar.first + "!");
+			aScholar.displayScholar();
+		}else {}
+		System.out.println("");
+		newOrSee();
 	}
 	
 	public static void displayAll() {
 		workerList.forEach((worker) -> worker.displayWorker());
 		athleteList.forEach((athlete) -> athlete.displayAthlete());
 		scholarList.forEach((scholar) -> scholar.displayScholar());
+		System.out.println("");
+		newOrSee();
 	}
 }

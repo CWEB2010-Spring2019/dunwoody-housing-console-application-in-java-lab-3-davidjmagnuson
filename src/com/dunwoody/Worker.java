@@ -3,6 +3,7 @@ package com.dunwoody;
 public class Worker extends Resident {
 	
 	public float rent; 
+	public String type = "worker";
 	
 	public Worker(String first, String last, int id, int room, int floor)
     {
@@ -22,6 +23,6 @@ public class Worker extends Resident {
 	}
 	
 	public void displayWorker() {
-		System.out.printf("%s %s - id:%-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
+		System.out.printf("%s %s (%s) - id:%-6d room: %-2d floor: %-2d rent: $%.2f\n", first, last, type, id, room, floor, rent);
 	}
 }

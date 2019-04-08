@@ -1,8 +1,9 @@
 package com.dunwoody;
 
 public class Scholar extends Resident {
-	
+		
 	private float rent = 100;
+	public String type = "scholar";
 	
 	public float getRent() {
 		return rent;
@@ -20,7 +21,6 @@ public class Scholar extends Resident {
     }
 	
 	public void displayScholar() {
-		System.out.printf("%s %s - id:%-6d room: %-2d floor: %-2d rent: $%g", first, last, id, room, floor, rent);
+		System.out.printf("%s %s (%s) - id:%-6d room: %-2d floor: %-2d rent: $%.2f\n", first, last, type, id, room, floor, rent);
 	}
-
 }
